@@ -1,6 +1,5 @@
 import { ThemeProvider } from 'next-themes';
 import '../styles/global.css';
-import { ChallengesProvider } from '../contexts/ChallengesContext';
 import { useEffect } from 'react';
 
 function MyApp({ Component, pageProps }) {
@@ -15,9 +14,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <ThemeProvider>
-      <ChallengesProvider>
-        <Component {...pageProps} />
-      </ChallengesProvider>
+      <Component {...pageProps} />
     </ThemeProvider>
   )
 }

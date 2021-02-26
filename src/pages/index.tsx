@@ -15,16 +15,13 @@ import { useState } from "react";
 export default function Home() {
   const { theme, setTheme } = useTheme();
   const [state, setState] = useState(false);
-  const [picture, setPicture] = useState('/icons/sunny.svg');
 
   function handleChange() {
     setState(!state);
     if (state) {
       setTheme('light');
-      setPicture('/icons/sunny.svg');
     } else {
       setTheme('dark');
-      setPicture('/icons/night.svg');
     }
   }
 
@@ -35,7 +32,7 @@ export default function Home() {
           display: "flex",
           justifyContent: "flex-end",
           alignItems: 'center',
-          marginBottom: 10          
+          marginBottom: 10
         }}
       >
         <Switch
@@ -43,7 +40,7 @@ export default function Home() {
           onChange={handleChange}
           inputProps={{ 'aria-label': 'secondary checkbox' }}
         />
-        <img style={{height: '1.5rem', marginLeft: '1rem'}} src={picture} alt="sunny"/>
+        <img style={{ height: '1.5rem', marginLeft: '1rem' }} src={state ? '/icons/night.svg' : '/icons/sunny.svg'} alt="sunny" />
       </div>
 
       <Head>
